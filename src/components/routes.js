@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Routes } from "react-router-dom";
 
-export const Routes = () => {
+export const RouteWrapper = () => {
   return (
     <Router>
       <Routes path="/" component={} />
