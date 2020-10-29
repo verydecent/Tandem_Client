@@ -8,7 +8,6 @@ const initialState = {
 
 // Reducer
 function trivia(state = initialState, action) {
-  console.log(action);
   switch (action.type) {
     case UPDATE_USERNAME:
       return {
