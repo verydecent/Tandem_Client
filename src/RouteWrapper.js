@@ -1,6 +1,5 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import Navigation from "./components/navigation";
 import LeaderBoard from "./components/leaderboard";
 import Home from "./components/home";
 import Trivia from "./components/trivia";
