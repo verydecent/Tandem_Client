@@ -34,9 +34,10 @@ class Trivia extends React.Component {
       return (
         <div className="trivia">
           <Navigation />
-          {cards && cards.map((card) => <Card card={card} />)}
-          <div className="question-section"></div>
-          <div className="multiple-choice-section"> </div>
+          {cards &&
+            cards.map((card, index) => <Card card={card} cardId={index} />)}
+          {/* <div className="question-section"></div>
+          <div className="multiple-choice-section"></div> */}
         </div>
       );
     } else {
