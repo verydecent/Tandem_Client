@@ -1,12 +1,14 @@
 import React from "react";
 import Navigation from "../navigation";
+import { updateName } from "../../redux/actionCreators";
+import { connect } from "react-redux";
 
 // Will not make any requests until the end
 // Or make requests with each question?
 
 // Leaderboard always get request on mounting
 
-const Home = () => {
+const Home = (props) => {
   return (
     <div className="home">
       <Navigation />
@@ -20,11 +22,18 @@ const Home = () => {
           <p className="hero-subtitle">Enter your name to get started</p>
         </div>
         <div className="hero-right">
-          <input type="text" />
+          <form onSubmit={props.updateName}>
+            <input type="text" placeholder="Your Name" />
+            <button>Go!</button>
+          </form>
         </div>
       </div>
     </div>
   );
 };
 
-export default Home;
+const mapDispatch = (dispatch) => ({
+  updateName: () => dispatch(updateName),
+});
+
+export default connect(null, mapDispatch)(Home);
