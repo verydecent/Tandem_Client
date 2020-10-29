@@ -1,23 +1,6 @@
 import React from "react";
+import withAnimation from "./withAnimation";
 
-const Question = (Component) => {
-  return class extends React.Component {
-    constructor() {
-      super();
-      this.state = { didMount: false };
-    }
-    componentDidMount() {
-      setTimeout(() => this.setState({ didMount: true }), 0);
-    }
-    render() {
-      const { didMount } = this.state;
-      return (
-        <div className={`fade-in ${didmount && "visible"}`}>
-          <Component {...this.props} />
-        </div>
-      );
-    }
-  };
-};
+const Question = ({ question }) => <div className="question">{question}</div>;
 
-export default Question;
+export default withAnimation(Question);
