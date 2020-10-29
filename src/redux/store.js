@@ -1,18 +1,19 @@
 import { createStore } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
-import { UPDATE_NAME } from "./constants";
+import { UPDATE_USERNAME } from "./constants";
 
 const initialState = {
-  playerName: "",
+  username: "",
 };
 
 // Reducer
 function trivia(state = initialState, action) {
+  console.log(action);
   switch (action.type) {
-    case UPDATE_NAME:
+    case UPDATE_USERNAME:
       return {
         ...state,
-        playerName: action.type,
+        username: action.username,
       };
     default:
       return state;

@@ -1,1 +1,1 @@
-export const UPDATE_NAME = "UPDATE_NAME";
+export const UPDATE_USERNAME = "UPDATE_USERNAME";

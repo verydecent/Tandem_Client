@@ -1,3 +1,3 @@
-import { UPDATE_NAME } from "./constants";
+import { UPDATE_USERNAME } from "./constants";
 
-export const updateName = () => UPDATE_NAME;
+export const updateUsername = () => UPDATE_USERNAME;

@@ -1,6 +1,6 @@
 import React from "react";
 import Navigation from "../navigation";
-import { updateName } from "../../redux/actionCreators";
+import { updateUsername } from "../../redux/actionCreators";
 import { connect } from "react-redux";
 
 // Will not make any requests until the end
@@ -25,10 +25,14 @@ const Home = (props) => {
           <form
             onSubmit={(e) => {
               e.preventDefault();
-              props.updateName();
             }}
           >
-            <input type="text" placeholder="Your Name" />
+            <input
+              onChange={(e) => props.updateUsername(e.target.value)}
+              type="text"
+              placeholder="Your Name"
+              value={props.username}
+            />
             <button>Go!</button>
           </form>
         </div>
@@ -37,8 +41,12 @@ const Home = (props) => {
   );
 };
 
-const mapDispatch = (dispatch) => ({
-  updateName: () => dispatch({ type: updateName() }),
+const mapState = (state) => ({
+  username: state.username,
 });
 
-export default connect(null, mapDispatch)(Home);
+const mapDispatch = (dispatch) => ({
+  updateUsername: (username) => dispatch({ type: updateUsername(), username }),
+});
+
+export default connect(mapState, mapDispatch)(Home);
