@@ -22,7 +22,12 @@ const Home = (props) => {
           <p className="hero-subtitle">Enter your name to get started</p>
         </div>
         <div className="hero-right">
-          <form onSubmit={props.updateName}>
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              props.updateName();
+            }}
+          >
             <input type="text" placeholder="Your Name" />
             <button>Go!</button>
           </form>
@@ -33,7 +38,7 @@ const Home = (props) => {
 };
 
 const mapDispatch = (dispatch) => ({
-  updateName: () => dispatch(updateName),
+  updateName: () => dispatch({ name: updateName() }),
 });
 
 export default connect(null, mapDispatch)(Home);
