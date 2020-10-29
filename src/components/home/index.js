@@ -36,7 +36,7 @@ const Home = (props) => {
             <input
               onChange={(e) => props.updateUsername(e.target.value)}
               type="text"
-              placeholder="Your Name"
+              placeholder="What's your name?"
               value={props.username}
             />
             <button>Go!</button>

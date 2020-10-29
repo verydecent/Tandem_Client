@@ -5,7 +5,10 @@ const Trivia = () => {
   return (
     <div className="trivia">
       <Navigation />
-      Trivia
+      <div className="question-section">
+        Question: What was Tandem previous name?
+      </div>
+      <div className="multiple-choice-section">a: b: c: d:</div>
     </div>
   );
 };
