@@ -20,6 +20,7 @@ function trivia(state = initialState, action) {
       xhttp.open("GET", "http://localhost:4000/questions");
       xhttp.onload = () => {
         if (xhttp.status === 200) {
+          const cards = JSON.parse(xhttp.response);
           return {
             ...state,
             cards,
@@ -28,6 +29,7 @@ function trivia(state = initialState, action) {
           console.log(`${xhttp.status} ${xhttp.statusText}`);
         }
       };
+      xhttp.send();
     }
     default:
       return state;

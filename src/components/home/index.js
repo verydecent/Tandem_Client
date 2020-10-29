@@ -1,6 +1,6 @@
 import React from "react";
 import Navigation from "../navigation";
-import { updateUsername } from "../../redux/actionCreators";
+import { updateUsername, getCards } from "../../redux/actionCreators";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 
@@ -29,6 +29,7 @@ const Home = (props) => {
               if (!props.username) {
                 console.log("write your username");
               } else {
+                props.getCards();
                 props.history.push("/trivia");
               }
             }}
@@ -52,7 +53,8 @@ const mapState = (state) => ({
 });
 
 const mapDispatch = (dispatch) => ({
-  updateUsername: (username) => dispatch({ type: updateUsername(), username }),
+  updateUsername: (username) => dispatch(updateUsername(username)),
+  getCards: () => dispatch(getCards()),
 });
 
 const HomeWithRouter = withRouter(Home);
