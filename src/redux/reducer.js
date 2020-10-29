@@ -1,3 +1,5 @@
+import { UPDATE_NAME } from "./constants";
+
 const initialState = {
   playerName: "",
 };
