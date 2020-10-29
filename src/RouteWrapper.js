@@ -10,7 +10,7 @@ export const RouteWrapper = () => {
     <Router>
       <Route path="/" component={Navigation} />
       <Route exact path="/" component={Home} />
-      <Route path="/app" component={Trivia} />
+      <Route path="/trivia" component={Trivia} />
       <Route path="/leaderboard" component={LeaderBoard} />
     </Router>
   );
