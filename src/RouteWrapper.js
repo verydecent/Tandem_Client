@@ -4,14 +4,16 @@ import Navigation from "./components/navigation";
 import LeaderBoard from "./components/leaderboard";
 import Home from "./components/home";
 import Trivia from "./components/trivia";
+import "./App.css";
 
 export const RouteWrapper = () => {
   return (
     <Router>
-      <Route path="/" component={Navigation} />
-      <Route exact path="/" component={Home} />
-      <Route path="/trivia" component={Trivia} />
-      <Route path="/leaderboard" component={LeaderBoard} />
+      <div className="max-width-container">
+        <Route exact path="/" component={Home} />
+        <Route path="/trivia" component={Trivia} />
+        <Route path="/leaderboard" component={LeaderBoard} />
+      </div>
     </Router>
   );
 };
