@@ -7,9 +7,9 @@ import Trivia from "./components/trivia";
 export const RouteWrapper = () => {
   return (
     <Router>
-      <Route path="/" component={Home} />
-      <Route exact path="app" component={Trivia} />
-      <Route path="app/leaderboard" component={LeaderBoard} />
+      <Route exact path="/" component={Home} />
+      <Route path="/app" component={Trivia} />
+      <Route path="/leaderboard" component={LeaderBoard} />
     </Router>
   );
 };
