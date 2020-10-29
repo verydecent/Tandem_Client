@@ -26,7 +26,11 @@ const Home = (props) => {
           <form
             onSubmit={(e) => {
               e.preventDefault();
-              props.history.push("/trivia");
+              if (!props.username) {
+                console.log("write your username");
+              } else {
+                props.history.push("/trivia");
+              }
             }}
           >
             <input
