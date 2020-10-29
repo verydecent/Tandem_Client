@@ -2,6 +2,7 @@ import React from "react";
 import Navigation from "../navigation";
 import { updateUsername } from "../../redux/actionCreators";
 import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 
 // Will not make any requests until the end
 // Or make requests with each question?
@@ -25,6 +26,7 @@ const Home = (props) => {
           <form
             onSubmit={(e) => {
               e.preventDefault();
+              props.history.push("/trivia");
             }}
           >
             <input
@@ -49,4 +51,6 @@ const mapDispatch = (dispatch) => ({
   updateUsername: (username) => dispatch({ type: updateUsername(), username }),
 });
 
-export default connect(mapState, mapDispatch)(Home);
+const HomeWithRouter = withRouter(Home);
+
+export default connect(mapState, mapDispatch)(HomeWithRouter);
