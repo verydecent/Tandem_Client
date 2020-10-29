@@ -38,7 +38,7 @@ const Home = (props) => {
 };
 
 const mapDispatch = (dispatch) => ({
-  updateName: () => dispatch({ name: updateName() }),
+  updateName: () => dispatch({ type: updateName() }),
 });
 
 export default connect(null, mapDispatch)(Home);

@@ -6,13 +6,13 @@ const initialState = {
   playerName: "",
 };
 
+// Reducer
 function trivia(state = initialState, action) {
   switch (action.type) {
     case UPDATE_NAME:
-      console.log("===== redux UPDATE_NAME ==== ", action);
       return {
         ...state,
-        playerName: action.name,
+        playerName: action.type,
       };
     default:
       return state;
