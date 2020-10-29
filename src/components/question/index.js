@@ -6,13 +6,16 @@ const Question = (Component) => {
       super();
       this.state = { didMount: false };
     }
+    componentDidMount() {
+      setTimeout(() => this.setState({ didMount: true }), 0);
+    }
     render() {
       const { didMount } = this.state;
       return (
-        <div className={fade-in `${didmount && 'visible'}`}>
+        <div className={`fade-in ${didmount && "visible"}`}>
           <Component {...this.props} />
         </div>
-      )
+      );
     }
   };
 };
