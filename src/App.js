@@ -1,8 +1,12 @@
 import "./App.css";
-import { RouteWrapper } from "./routes";
+import { RouteWrapper } from "./components/routes";
 
 function App() {
-  return <RouteWrapper />;
+  return (
+    <div className="App">
+      <RouteWrapper />
+    </div>
+  );
 }
 
 export default App;
