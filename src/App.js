@@ -1,5 +1,5 @@
 import "./App.css";
-import { RouteWrapper } from "./components/routes";
+import RouteWrapper from "./RouteWrapper";
 
 function App() {
   return (
