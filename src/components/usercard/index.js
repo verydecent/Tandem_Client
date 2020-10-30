@@ -4,9 +4,10 @@ import { connect } from "react-redux";
 const UserCard = ({ username, points }) => {
   return (
     <div className="usercard">
-      <h1 className="">Tandem Trivia User Profile</h1>
-      Username: {username}
-      Points: {points}
+      <h1 className="">Username: {username}</h1>
+      <h1 className="">
+        Points: <span className="underline">{points}</span>
+      </h1>
     </div>
   );
 };
