@@ -4,11 +4,9 @@ import Card from "../card";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 
-const Trivia = ({ cards, match, isCorrectModalOpen, isIncorrectModalOpen }) => {
+const Trivia = ({ cards, match }) => {
   const { id } = match.params;
 
-  console.log("isCorrect", isCorrectModalOpen);
-  console.log("isIncorrect", isIncorrectModalOpen);
   return (
     <div className="trivia">
       <Navigation />
