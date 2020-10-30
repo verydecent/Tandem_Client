@@ -7,8 +7,8 @@ const Trivia = () => {
   return (
     <div className="trivia">
       {/* <Navigation /> */}
-      <Card />
       <UserCard />
+      <Card />
     </div>
   );
 };

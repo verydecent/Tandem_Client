@@ -221,6 +221,7 @@ QUESTION
 }
 
 .question h1 {
+  font-size: 3.2rem;
 }
 
 .question h2 {
@@ -241,7 +242,7 @@ CHOICE
   background: transparent;
   border: 2px solid var(--bg-color);
   /* color: var(--orange); */
-  color: var(--white);
+  color: var(--grey);
   font-size: 1.2rem;
   letter-spacing: 1px;
   font-weight: 700;
@@ -256,7 +257,7 @@ CHOICE
 }
 
 .choice:hover {
-  /* color: var(--orange); */
+  color: var(--white);
   border: 2px solid var(--grey);
   border-radius: 2px;
   cursor: pointer;
