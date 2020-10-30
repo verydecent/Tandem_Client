@@ -4,8 +4,9 @@ import LeaderBoard from "./components/leaderboard";
 import Home from "./components/home";
 import Trivia from "./components/trivia";
 import "./App.css";
+import { connect } from "react-redux";
 
-export const RouteWrapper = () => {
+const RouteWrapper = () => {
   return (
     <Router>
       <div className="max-width-container">
@@ -16,3 +17,7 @@ export const RouteWrapper = () => {
     </Router>
   );
 };
+
+const mapState = (state) => ({ cards: state.cards });
+
+export default connect(mapState)(RouteWrapper);

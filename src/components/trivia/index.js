@@ -12,7 +12,6 @@ class Trivia extends React.Component {
   }
   componentDidMount() {
     // API call and while asyn, it'll show loading bar
-    const endpoint = "http://localhost:4000/questions/0";
     // let xhttp = new XMLHttpRequest();
     // xhttp.open("GET", endpoint);
     // xhttp.onload = () => {
