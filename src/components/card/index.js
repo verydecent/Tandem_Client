@@ -6,7 +6,6 @@ import { shuffle } from "../../helpers";
 import { Link, withRouter } from "react-router-dom";
 
 const Card = ({ card, match }) => {
-  console.log("Card render()", card);
   const { question, incorrect, correct } = card;
   const { id } = match.params;
   const lastQ = "21";
@@ -22,7 +21,12 @@ const Card = ({ card, match }) => {
       </div>
       <div className="multiple-choice-section">
         {choices.map((choice, index) => (
-          <Choice key={shortid.generate()} choice={choice} index={index} />
+          <Choice
+            key={shortid.generate()}
+            choice={choice}
+            correct={correct}
+            index={index}
+          />
         ))}
       </div>
       {/*

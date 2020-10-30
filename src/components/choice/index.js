@@ -18,7 +18,7 @@ const Choice = ({
     <div className="choice">
       <button
         onClick={() => {
-          console.log("clicked choice");
+          console.log("clicked choice", correct === choice);
           if (correct === choice) {
             toggleCorrect();
           } else {
