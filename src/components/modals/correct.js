@@ -1,7 +1,15 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
+import { connect } from "react-redux";
+import { closeModals } from "../../redux/actionCreators";
 
-const Correct = ({ history, match }) => {
+const Correct = ({
+  // Values
+  history,
+  match,
+  // Methods
+  closeModals,
+}) => {
   const lastQ = "21";
   const id = parseInt(match.params.id);
   const dynamicURL =
@@ -16,6 +24,7 @@ const Correct = ({ history, match }) => {
 
       <button
         onClick={() => {
+          closeModals();
           history.push(dynamicURL);
         }}
       >
@@ -25,4 +34,8 @@ const Correct = ({ history, match }) => {
   );
 };
 
-export default withRouter(Correct);
+const CorrectWithRouter = withRouter(Correct);
+const mapDispatch = (dispatch) => ({
+  closeModals: dispatch(closeModals()),
+});
+export default connect(null, mapDispatch)(CorrectWithRouter);
