@@ -1,55 +1,57 @@
 import React from "react";
 import Navigation from "../navigation";
 import Card from "../card";
-import { Route } from "react-router-dom";
+import { withRouter, Route } from "react-router-dom";
+import { connect } from "react-redux";
+import axios from "axios";
 
 class Trivia extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      didMount: false,
-      cards: [],
+      isLoading: true,
+      question: "",
+      choices: [],
+      correct: "",
     };
   }
+
   componentDidMount() {
-    // API call and while asyn, it'll show loading bar
-    // let xhttp = new XMLHttpRequest();
-    // xhttp.open("GET", endpoint);
-    // xhttp.onload = () => {
-    //   if (xhttp.status === 200) {
-    //     const cards = JSON.parse(xhttp.response);
-    //     this.setState({ didMount: true, cards });
-    //   } else {
-    //     console.log(`error ${xhttp.status} ${xhttp.statusText}`);
-    //   }
-    // };
-    // xhttp.send();
+    const { id } = this.props.match.params;
+
+    axios
+      .get(`${process.env.REACT_APP_DEVELOPMENT_API}/questions/${id}`)
+      .then((response) => {
+        const choices = [...response.data.incorrect, response.data.correct];
+        console.log("choices", choices);
+        this.setState({
+          isLoading: false,
+          question: response.data.question,
+          choices: choices,
+          correct: response.data.correct,
+        });
+      })
+      .catch((error) => console.log("error", error));
   }
 
   render() {
-    const { didMount, cards } = this.state;
+    const { isLoading, question, choices, correct } = this.state;
 
-    if (didMount) {
-      return (
-        <div className="trivia">
-          <Navigation />
-          {cards &&
-            cards.map((card, index) => (
-              <Route path={index}>
-                <Card card={card} cardId={index} />
-              </Route>
-            ))}
-        </div>
-      );
+    if (isLoading) {
+      return <div className="loading">Loading...</div>;
     } else {
       return (
         <div className="trivia">
           <Navigation />
-          Loading...
+          <Card question={question} choices={choices} correct={correct} />
         </div>
       );
     }
   }
 }
 
-export default Trivia;
+const TriviaWithRouter = withRouter(Trivia);
+const mapDispatch = (dispatch) => ({});
+const mapState = (state) => ({});
+
+export default connect(mapState, mapDispatch)(TriviaWithRouter);

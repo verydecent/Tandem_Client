@@ -3,17 +3,16 @@ import withAnimation from "./withAnimation";
 import Question from "../question";
 import Choice from "../choice";
 import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
+import shortid from "shortid";
 
-const Card = ({ cardId, getCard }) => {
-  // const question = <Question question={card.question} />;
-  // const choices =
-  //   card &&
-  //   [...card.incorrect, card.correct].map((choice) => (
-  //     <Choice choice={choice} />
-  //   ));
-
+const Card = ({ question, choices, correct }) => {
   return (
     <div className="card">
+      <Question question={question} />
+      {choices.map((choice, index) => (
+        <Choice key={shortid.generate()} choice={choice} index={index} />
+      ))}
       {/* <div className="question-section">{question}</div>
       <div className="multiple-choice-section">{choices}</div> */}
     </div>
@@ -25,4 +24,4 @@ const mapDispatch = (dispatch, ownProps) => ({});
 
 const CardWithAnimation = withAnimation(Card);
 
-export default connect(mapState, mapDispatch)(CardWithAnimation);
+export default withRouter(CardWithAnimation);
