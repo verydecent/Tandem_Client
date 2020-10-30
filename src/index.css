@@ -7,7 +7,7 @@ body {
   font-size: 62.5%;
   line-height: 1.5;
   font-family: "Lato", sans-serif;
-  background: #fff4e6;
+  background: var(--bg-color);
 }
 
 code {
