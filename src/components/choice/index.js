@@ -1,12 +1,41 @@
 import React from "react";
+import { connect } from "react-redux";
+import {
+  toggleCorrectModal,
+  toggleIncorrectModal,
+} from "../../redux/actionCreators";
 
-const Choice = ({ choice, index }) => {
-  const num = `${index} )  `;
+const Choice = ({
+  // Values
+  choice,
+  correct,
+  index,
+  // Methods
+  toggleCorrect,
+  toggleIncorrect,
+}) => {
   return (
     <div className="choice">
-      {num} {choice}
+      <button
+        onClick={() => {
+          console.log("clicked choice");
+          if (correct === choice) {
+            toggleCorrect();
+          } else {
+            toggleIncorrect();
+          }
+        }}
+      >
+        {`${index} ) ${choice}`}
+      </button>
     </div>
   );
 };
 
-export default Choice;
+const mapState = (state) => ({});
+const mapDispatch = (dispatch) => ({
+  toggleCorrect: () => dispatch(toggleCorrectModal()),
+  toggleIncorrec: () => dispatch(toggleIncorrectModal()),
+});
+
+export default connect(mapState, mapDispatch)(Choice);
