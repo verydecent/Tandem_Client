@@ -10,13 +10,13 @@ import { connect } from "react-redux";
 
 const Card = ({
   // values
-  card,
+  cards,
   match,
   isCorrectModalOpen,
   isIncorrectModalOpen,
 }) => {
-  const { question, incorrect, correct } = card;
   const id = parseInt(match.params.id);
+  const { question, incorrect, correct } = cards[id];
   const lastQ = 21;
   const dynamicURL = id === lastQ ? "/leaderboard" : `/trivia/${id + 1}`;
   const choices = shuffle([...incorrect, correct]);
