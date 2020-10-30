@@ -4,18 +4,23 @@ import Choice from "../choice";
 import shortid from "shortid";
 import { shuffle } from "../../helpers";
 import { Link, withRouter } from "react-router-dom";
+import Incorrect from "../modals/incorrect";
+import Correct from "../modals/correct";
+import { connect } from "react-redux";
 
-const Card = ({ card, match }) => {
+const Card = ({ card, match, isCorrectModalOpen, isIncorrectModalOpen }) => {
   const { question, incorrect, correct } = card;
-  const { id } = match.params;
-  const lastQ = "21";
+  const id = parseInt(match.params.id);
+  const lastQ = 21;
 
+  const dynamicURL = id === lastQ ? "/leaderboard" : `/trivia/${id + 1}`;
   const choices = shuffle([...incorrect, correct]);
-  const dynamicURL =
-    id === lastQ ? "/leaderboard" : `/trivia/${parseInt(id) + 1}`;
 
   return (
     <div className="card">
+      {isCorrectModalOpen && <Correct />}
+      {isIncorrectModalOpen && <Incorrect />}
+
       <div className="question-section">
         <Question question={question} />
       </div>
@@ -42,4 +47,14 @@ const Card = ({ card, match }) => {
   );
 };
 
-export default withRouter(Card);
+const mapDispatch = (dispatch) => ({});
+
+const mapState = (state) => ({
+  cards: state.cards,
+  isCorrectModalOpen: state.isCorrectModalOpen,
+  isIncorrectModalOpen: state.isIncorrectModalOpen,
+});
+
+const CardWithRouter = withRouter(Card);
+
+export default connect(mapState, mapDispatch)(CardWithRouter);

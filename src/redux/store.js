@@ -5,6 +5,7 @@ import {
   GET_CARDS,
   TOGGLE_CORRECT_MODAL,
   TOGGLE_INCORRECT_MODAL,
+  CLOSE_MODALS,
 } from "./constants";
 
 const initialState = {
@@ -38,6 +39,13 @@ function trivia(state = initialState, action) {
       return {
         ...state,
         isIncorrectModalOpen: !state.isIncorrectModalOpen,
+      };
+    }
+    case CLOSE_MODALS: {
+      return {
+        ...state,
+        isIncorrectModalOpen: false,
+        isCorrectModalOpen: false,
       };
     }
     default:
