@@ -11,26 +11,27 @@ const Choice = ({
   // Values
   choice,
   correct,
+  index,
   // Methods
   addPoint,
   toggleCorrect,
   toggleIncorrect,
 }) => {
   return (
-    <div className="choice">
-      <Button
-        onClick={() => {
-          if (correct === choice) {
-            toggleCorrect();
-            addPoint();
-          } else {
-            toggleIncorrect();
-          }
-        }}
-      >
-        {`${choice}`}
-      </Button>
-    </div>
+    <button
+      className="choice"
+      onClick={() => {
+        if (correct === choice) {
+          toggleCorrect();
+          addPoint();
+        } else {
+          toggleIncorrect();
+        }
+      }}
+    >
+      <span className="choice-circle">{index}</span>
+      {choice}
+    </button>
   );
 };
 

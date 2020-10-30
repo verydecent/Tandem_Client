@@ -8,6 +8,7 @@
   --orange: #cd6315;
   --blue: #509afa;
   --lightblue: #eaf0fd;
+  --grey: #918f98;
 }
 
 .App {
@@ -206,7 +207,8 @@ CARD
 
 .multiple-choice-section {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 /*
@@ -217,6 +219,43 @@ QUESTION
 
 .question {
   font-size: 1rem;
+}
+
+/*
+******
+CHOICE
+******
+*/
+
+.choice {
+  display: flex;
+  justify-content: flex-start;
+  background: transparent;
+  border: none;
+  /* color: var(--orange); */
+  color: var(--white);
+  font-size: 1.2rem;
+  font-weight: 700;
+  border: 1px solid var(--main-bg-color);
+  height: 48px;
+  margin-top: 4px;
+}
+
+.choice:hover {
+  border: 1px solid var(--grey);
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.choice-circle {
+  border-radius: 50%;
+  border: 2px solid var(--grey);
+  height: 30px;
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--grey);
 }
 
 /*
