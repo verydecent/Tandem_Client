@@ -6,6 +6,7 @@ import {
   TOGGLE_CORRECT_MODAL,
   TOGGLE_INCORRECT_MODAL,
   CLOSE_MODALS,
+  ADD_POINT,
 } from "./constants";
 
 const initialState = {
@@ -13,6 +14,7 @@ const initialState = {
   cards: [],
   isCorrectModalOpen: false,
   isIncorrectModalOpen: false,
+  points: 0,
 };
 
 // Reducer
@@ -46,6 +48,12 @@ function trivia(state = initialState, action) {
         ...state,
         isIncorrectModalOpen: false,
         isCorrectModalOpen: false,
+      };
+    }
+    case ADD_POINT: {
+      return {
+        ...state,
+        points: state.points + 1,
       };
     }
     default:

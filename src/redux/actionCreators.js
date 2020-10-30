@@ -3,6 +3,7 @@ import {
   TOGGLE_CORRECT_MODAL,
   TOGGLE_INCORRECT_MODAL,
   CLOSE_MODALS,
+  ADD_POINT,
 } from "./constants";
 
 export const updateUsername = (username) => ({
@@ -20,4 +21,8 @@ export const toggleIncorrectModal = () => ({
 
 export const closeModals = () => ({
   type: CLOSE_MODALS,
+});
+
+export const addPoint = () => ({
+  type: ADD_POINT,
 });
