@@ -1,27 +1,41 @@
 import React from "react";
-import withAnimation from "./withAnimation";
 import Question from "../question";
 import Choice from "../choice";
-import { connect } from "react-redux";
-import { withRouter } from "react-router-dom";
 import shortid from "shortid";
+import { shuffle } from "../../helpers";
+import { Link, withRouter } from "react-router-dom";
 
-const Card = ({ question, choices, correct }) => {
+const Card = ({ card, match }) => {
+  console.log("Card render()", card);
+  const { question, incorrect, correct } = card;
+  const { id } = match.params;
+  const lastQ = "21";
+
+  const choices = shuffle([...incorrect, correct]);
+  const dynamicURL =
+    id === lastQ ? "/leaderboard" : `/trivia/${parseInt(id) + 1}`;
+
   return (
     <div className="card">
-      <Question question={question} />
-      {choices.map((choice, index) => (
-        <Choice key={shortid.generate()} choice={choice} index={index} />
-      ))}
-      {/* <div className="question-section">{question}</div>
-      <div className="multiple-choice-section">{choices}</div> */}
+      <div className="question-section">
+        <Question question={question} />
+      </div>
+      <div className="multiple-choice-section">
+        {choices.map((choice, index) => (
+          <Choice key={shortid.generate()} choice={choice} index={index} />
+        ))}
+      </div>
+      {/*
+        Makes reques to check
+        Returns 0 or 1
+        if 0 then tells you wrong message
+        if 1 then got it right
+        both will present next question button  
+      */}
+      <button>Check Answer</button>
+      <Link to={dynamicURL}>Next Question</Link>
     </div>
   );
 };
 
-const mapState = (state) => ({});
-const mapDispatch = (dispatch, ownProps) => ({});
-
-const CardWithAnimation = withAnimation(Card);
-
-export default withRouter(CardWithAnimation);
+export default withRouter(Card);
