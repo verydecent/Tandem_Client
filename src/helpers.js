@@ -1,3 +1,6 @@
+import axios from "axios";
+import { GET_CARDS } from "./redux/constants";
+
 export const shuffle = (array) => {
   var currentIndex = array.length,
     temporaryValue,
@@ -16,4 +19,18 @@ export const shuffle = (array) => {
   }
 
   return array;
+};
+
+export const getCardsHelper = (dispatch, cb) => {
+  return axios
+    .get(`${process.env.REACT_APP_DEVELOPMENT_API}/questions`)
+    .then((response) => {
+      console.log("getCardsHelper ====>", response.data);
+      dispatch({
+        type: GET_CARDS,
+        cards: response.data,
+      });
+      cb();
+    })
+    .catch((error) => console.log("error ====>", error));
 };

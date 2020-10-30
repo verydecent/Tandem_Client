@@ -3,26 +3,12 @@ import Navigation from "../navigation";
 import { updateUsername } from "../../redux/actionCreators";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import { GET_CARDS } from "../../redux/constants";
-import axios from "axios";
+import { getCardsHelper } from "../../helpers";
 
 // Will not make any requests until the end
 // Or make requests with each question?
 
 // Leaderboard always get request on mounting
-
-const getCardsHelper = (dispatch) => {
-  return axios
-    .get(`${process.env.REACT_APP_DEVELOPMENT_API}/questions`)
-    .then((response) => {
-      console.log("getCardsHelper ====>", response.data);
-      dispatch({
-        type: GET_CARDS,
-        cards: response.data,
-      });
-    })
-    .catch((error) => console.log("error ====>", error));
-};
 
 const Home = ({
   // Values
@@ -51,8 +37,7 @@ const Home = ({
               if (!username) {
                 console.log("write your username");
               } else {
-                getCards();
-                history.push("/trivia/1");
+                getCards(() => history.push("/trivia/1"));
               }
             }}
           >
@@ -76,7 +61,7 @@ const mapState = (state) => ({
 
 const mapDispatch = (dispatch) => ({
   updateUsername: (username) => dispatch(updateUsername(username)),
-  getCards: () => getCardsHelper(dispatch),
+  getCards: (cb) => getCardsHelper(dispatch, cb),
 });
 
 const HomeWithRouter = withRouter(Home);
