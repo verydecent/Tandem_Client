@@ -4,6 +4,7 @@ import { updateUsername } from "../../redux/actionCreators";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { getCardsHelper } from "../../helpers";
+import NameInput from "../nameinput";
 
 // Will not make any requests until the end
 // Or make requests with each question?
@@ -23,15 +24,29 @@ const Home = ({
       <Navigation />
       <div className="hero">
         <div className="hero-left">
+          <h1 className="hero-title">Welcome!</h1>
           <h1 className="hero-title">Tandem Trivia Game</h1>
           <p className="hero-subtitle">
-            Welcome to the Tandem's pop quiz, where you'll be able to learn more
-            about the origins of Tandem
+            Learn about Tandem's origins other interesting life facts
           </p>
-          <p className="hero-subtitle">Enter your name to get started</p>
+          <div className="hero-desc-section">
+            <p className="hero-desc">
+              Brought to you by:
+              <a id="hero-link" href="">
+                &nbsp;Tandem
+              </a>
+            </p>
+            <p className="hero-desc">
+              Created by:
+              <a id="hero-link" href="">
+                &nbsp;Wonjae
+              </a>
+            </p>
+          </div>
         </div>
         <div className="hero-right">
-          <form
+          <NameInput
+            username={username}
             onSubmit={(e) => {
               e.preventDefault();
               if (!username) {
@@ -40,15 +55,8 @@ const Home = ({
                 getCards(() => history.push("/trivia/1"));
               }
             }}
-          >
-            <input
-              onChange={(e) => updateUsername(e.target.value)}
-              type="text"
-              placeholder="What's your name?"
-              value={username}
-            />
-            <button>Go!</button>
-          </form>
+            onChange={(e) => updateUsername(e.target.value)}
+          />
         </div>
       </div>
     </div>

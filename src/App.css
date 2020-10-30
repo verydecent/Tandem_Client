@@ -1,6 +1,11 @@
 :root {
-  --bg-color: #fff4e6;
-  --pad: 12px 16px 8px;
+  --pad: 20px 16px 24px;
+  --main-bg-color: #12111a;
+  --bg-color: #282730;
+  /* --bg-color: #f3f3f4; */
+  --white: #edecee;
+  --black: #202124;
+  --orange: #cd6315;
 }
 
 .App {
@@ -15,7 +20,7 @@ MAX WIDTH CONTAINER
 */
 
 .max-width-container {
-  max-width: 1100px;
+  max-width: 900px;
   margin: 0 auto;
 }
 
@@ -26,23 +31,31 @@ NAVIGATION
 */
 
 .navigation {
-  border: 1px solid #000000;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-size: 1.4rem;
+  padding-top: 14%;
+  padding-bottom: 20px;
 }
 
 .navigation-logo {
   width: 100px;
+  color: var(--white);
 }
 
 .navigation-menu-list {
   display: flex;
   list-style: none;
+  margin: 0;
 }
 
 .navigation-menu-list li {
   margin-left: 20px;
+}
+
+.navigation-menu-list li a {
+  color: var(--white);
 }
 
 /*
@@ -56,16 +69,20 @@ HOME
 }
 
 .hero {
+  margin-top: 8%;
   width: 100%;
   display: flex;
+  justify-content: space-between;
 }
 
 .hero-left {
-  width: 60%;
+  max-width: 400px;
 }
 
 .hero-right {
-  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .hero-title {
@@ -73,7 +90,69 @@ HOME
 }
 
 .hero-subtitle {
+  margin-top: 24px;
+  margin-bottom: 32px;
   font-size: 1.4rem;
+}
+
+.hero-desc-section {
+  display: flex;
+  justify-content: space-between;
+}
+
+.hero-desc {
+  font-size: 1rem;
+}
+
+#hero-link {
+  color: var(--white);
+}
+
+#hero-link:hover {
+  text-decoration: underline;
+}
+
+/*
+*********
+NAMEINPUT
+*********
+*/
+
+.name-input {
+  width: 300px;
+  border: 1px solid #000000;
+  border-radius: 5px;
+  padding: var(--pad);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--bg-color);
+}
+
+.name-input-title {
+  margin-bottom: 20px;
+  color: var(--white);
+}
+
+.input {
+  text-align: center;
+  width: 100%;
+  height: 48px;
+  font-size: 1.2rem;
+  margin: 0;
+  padding: 0 0 0;
+  border-radius: 5px;
+  border: 1px solid #ffffff;
+  margin-bottom: 30px;
+}
+
+.input:focus {
+  outline: none;
+}
+
+.input:hover {
+  border: 1px solid #509afa;
+  cursor: pointer;
 }
 
 /*
@@ -83,11 +162,15 @@ CARD
 */
 
 .card {
-  width: 300px;
   border: 1px solid black;
   margin-top: 10px;
   padding: 12px 16px 10px;
   border-radius: 2px;
+}
+
+.multiple-choice-section {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 /*
@@ -132,7 +215,7 @@ MODAL
   max-width: 100%;
   height: 200px;
   max-height: 100%;
-  padding: 10px 16px 8px;
+  padding: var(--pad);
   border: 1px solid red;
 
   display: flex;
@@ -151,7 +234,6 @@ USERCARD
   border: 1px solid #000000;
   border-radius: 2px;
   padding: var(--pad);
-  width: 300px;
 }
 /*
   ******
@@ -167,9 +249,10 @@ USERCARD
   align-items: center;
   border: 2px solid #eaf0fd;
   background: #eaf0fd;
-  min-width: 220px;
+  /* min-width: 200px; */
+  width: 100%;
   color: #509afa;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
 }
 
 .button:hover {

@@ -7,7 +7,8 @@ body {
   font-size: 62.5%;
   line-height: 1.5;
   font-family: "Lato", sans-serif;
-  background: var(--bg-color);
+  background: var(--main-bg-color);
+  color: var(--white);
 }
 
 code {
@@ -16,6 +17,10 @@ code {
 
 a {
   text-decoration: none;
+}
+
+a:visited {
+  color: var(--white);
 }
 
 img {
