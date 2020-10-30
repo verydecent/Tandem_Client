@@ -8,13 +8,20 @@ import Incorrect from "../modals/incorrect";
 import Correct from "../modals/correct";
 import { connect } from "react-redux";
 
-const Card = ({ card, match, isCorrectModalOpen, isIncorrectModalOpen }) => {
+const Card = ({
+  // values
+  card,
+  match,
+  isCorrectModalOpen,
+  isIncorrectModalOpen,
+}) => {
   const { question, incorrect, correct } = card;
   const id = parseInt(match.params.id);
   const lastQ = 21;
-
   const dynamicURL = id === lastQ ? "/leaderboard" : `/trivia/${id + 1}`;
   const choices = shuffle([...incorrect, correct]);
+
+  console.log(isCorrectModalOpen);
 
   return (
     <div className="card">
@@ -41,8 +48,6 @@ const Card = ({ card, match, isCorrectModalOpen, isIncorrectModalOpen }) => {
         if 1 then got it right
         both will present next question button  
       */}
-      <button>Check Answer</button>
-      <Link to={dynamicURL}>Next Question</Link>
     </div>
   );
 };

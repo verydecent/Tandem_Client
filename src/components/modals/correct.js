@@ -23,7 +23,7 @@ const Correct = ({
       </div>
 
       <button
-        onClick={() => {
+        onClick={(e) => {
           closeModals();
           history.push(dynamicURL);
         }}
@@ -35,7 +35,9 @@ const Correct = ({
 };
 
 const CorrectWithRouter = withRouter(Correct);
+
 const mapDispatch = (dispatch) => ({
-  closeModals: dispatch(closeModals()),
+  closeModals: () => dispatch(closeModals()),
 });
+
 export default connect(null, mapDispatch)(CorrectWithRouter);
