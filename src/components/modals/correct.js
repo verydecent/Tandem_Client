@@ -14,30 +14,26 @@ const Correct = ({
   const id = parseInt(match.params.id);
   const dynamicURL =
     id === lastQ ? "/leaderboard" : `/trivia/${parseInt(id) + 1}`;
+  const nextQuestion = () => {
+    closeModals();
+    history.push(dynamicURL);
+  };
 
   return (
     <div className="modal">
-      <div className="modal-overlay"></div>
+      <div className="modal-overlay" onClick={nextQuestion}></div>
       <div className="modal-content">
         <h1>Correct</h1>
+        <button onClick={nextQuestion}>Next Question</button>
       </div>
-
-      <button
-        onClick={(e) => {
-          closeModals();
-          history.push(dynamicURL);
-        }}
-      >
-        Next Question
-      </button>
     </div>
   );
 };
 
-const CorrectWithRouter = withRouter(Correct);
-
 const mapDispatch = (dispatch) => ({
   closeModals: () => dispatch(closeModals()),
 });
+
+const CorrectWithRouter = withRouter(Correct);
 
 export default connect(null, mapDispatch)(CorrectWithRouter);
