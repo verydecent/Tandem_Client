@@ -6,7 +6,7 @@ import UserCard from "../usercard";
 const Trivia = () => {
   return (
     <div className="trivia">
-      <Navigation />
+      {/* <Navigation /> */}
       <UserCard />
       <Card />
     </div>

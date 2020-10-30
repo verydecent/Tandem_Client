@@ -29,7 +29,7 @@ const Card = ({
       {isIncorrectModalOpen && <Incorrect />}
 
       <div className="question-section">
-        <Question question={question} />
+        <Question id={id} question={question} />
       </div>
       <div className="multiple-choice-section">
         {choices.map((choice, index) => (
