@@ -12,18 +12,18 @@ class Trivia extends React.Component {
   }
   componentDidMount() {
     // API call and while asyn, it'll show loading bar
-    const endpoint = "http://localhost:4000/questions";
-    let xhttp = new XMLHttpRequest();
-    xhttp.open("GET", endpoint);
-    xhttp.onload = () => {
-      if (xhttp.status === 200) {
-        const cards = JSON.parse(xhttp.response);
-        this.setState({ didMount: true, cards });
-      } else {
-        console.log(`error ${xhttp.status} ${xhttp.statusText}`);
-      }
-    };
-    xhttp.send();
+    const endpoint = "http://localhost:4000/questions/0";
+    // let xhttp = new XMLHttpRequest();
+    // xhttp.open("GET", endpoint);
+    // xhttp.onload = () => {
+    //   if (xhttp.status === 200) {
+    //     const cards = JSON.parse(xhttp.response);
+    //     this.setState({ didMount: true, cards });
+    //   } else {
+    //     console.log(`error ${xhttp.status} ${xhttp.statusText}`);
+    //   }
+    // };
+    // xhttp.send();
   }
 
   render() {
