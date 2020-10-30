@@ -188,6 +188,7 @@ TRIVIA
 */
 
 .trivia {
+  height: 400px;
   display: flex;
   padding-top: calc(20px + 14%);
 }
@@ -200,9 +201,9 @@ CARD
 
 .card {
   width: 70%;
-  /* background: var(--bg-color); */
+  background: var(--bg-color);
   padding: var(--pad);
-  border-radius: 2px;
+  height: 100%;
 }
 
 .multiple-choice-section {
@@ -315,7 +316,7 @@ USERCARD
   background: #fff;
   color: var(--black);
   padding: var(--pad);
-  height: 300px;
+  height: 100%;
   font-size: 1rem;
 }
 /*
