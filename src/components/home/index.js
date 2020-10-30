@@ -25,9 +25,12 @@ const Home = ({
       <div className="hero">
         <div className="hero-left">
           <h1 className="hero-title">Welcome!</h1>
-          <h1 className="hero-title">Tandem Trivia Game</h1>
+          <h1 className="hero-title">
+            <span className="oj">Tandem</span> Trivia Game
+          </h1>
           <p className="hero-subtitle">
-            Learn about Tandem's origins other interesting life facts
+            <span className="underline"> Learn</span> about Tandem's origins
+            other interesting life facts
           </p>
           <div className="hero-desc-section">
             <p className="hero-desc">

@@ -5,14 +5,11 @@ const Navigation = () => {
   return (
     <div className="navigation">
       <Link to="/">
-        <div className="navigation-logo">Tandem</div>
+        <div className="navigation-logo">Home</div>
       </Link>
       <ul className="navigation-menu-list">
         <li>
           <Link to="/leaderboard">Leaderboard</Link>
-        </li>
-        <li>
-          <Link to="/trivia">Play</Link>
         </li>
       </ul>
     </div>

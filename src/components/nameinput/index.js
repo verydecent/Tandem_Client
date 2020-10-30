@@ -10,12 +10,12 @@ const NameInput = ({
 }) => {
   return (
     <form className="name-input" onSubmit={onSubmit}>
-      <h1 className="name-input-title">What's your name?</h1>
+      <h1 className="name-input-title">What's your name</h1>
       <input
         className="input"
         onChange={onChange}
         type="text"
-        placeholder="What's your name?"
+        placeholder="name"
         value={username}
       />
       <Button>Go!</Button>
