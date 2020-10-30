@@ -33,9 +33,10 @@ const Choice = ({
 };
 
 const mapState = (state) => ({});
+
 const mapDispatch = (dispatch) => ({
   toggleCorrect: () => dispatch(toggleCorrectModal()),
-  toggleIncorrec: () => dispatch(toggleIncorrectModal()),
+  toggleIncorrect: () => dispatch(toggleIncorrectModal()),
 });
 
 export default connect(mapState, mapDispatch)(Choice);
