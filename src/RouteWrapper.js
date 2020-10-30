@@ -6,12 +6,12 @@ import Trivia from "./components/trivia";
 import "./App.css";
 import { connect } from "react-redux";
 
-const RouteWrapper = () => {
+const RouteWrapper = ({ cards }) => {
   return (
     <Router>
       <div className="max-width-container">
         <Route exact path="/" component={Home} />
-        <Route path="/trivia" component={Trivia} />
+        <Route path="/trivia/:id" component={Trivia} />
         <Route path="/leaderboard" component={LeaderBoard} />
       </div>
     </Router>

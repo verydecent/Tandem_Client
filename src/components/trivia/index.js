@@ -1,6 +1,7 @@
 import React from "react";
 import Navigation from "../navigation";
 import Card from "../card";
+import { Route } from "react-router-dom";
 
 class Trivia extends React.Component {
   constructor() {
@@ -33,7 +34,11 @@ class Trivia extends React.Component {
         <div className="trivia">
           <Navigation />
           {cards &&
-            cards.map((card, index) => <Card card={card} cardId={index} />)}
+            cards.map((card, index) => (
+              <Route path={index}>
+                <Card card={card} cardId={index} />
+              </Route>
+            ))}
         </div>
       );
     } else {
