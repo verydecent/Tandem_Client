@@ -18,9 +18,10 @@ function trivia(state = initialState, action) {
     case GET_CARDS: {
       let xhttp = new XMLHttpRequest();
       xhttp.open("GET", "http://localhost:4000/questions");
-      xhttp.onload = () => {
+      xhttp.onload = function () {
         if (xhttp.status === 200) {
           const cards = JSON.parse(xhttp.response);
+          console.log("=====", cards);
           return {
             ...state,
             cards,

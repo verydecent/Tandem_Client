@@ -17,7 +17,6 @@ class Trivia extends React.Component {
     xhttp.open("GET", endpoint);
     xhttp.onload = () => {
       if (xhttp.status === 200) {
-        console.log("Response", JSON.parse(xhttp.response));
         const cards = JSON.parse(xhttp.response);
         this.setState({ didMount: true, cards });
       } else {
@@ -36,8 +35,6 @@ class Trivia extends React.Component {
           <Navigation />
           {cards &&
             cards.map((card, index) => <Card card={card} cardId={index} />)}
-          {/* <div className="question-section"></div>
-          <div className="multiple-choice-section"></div> */}
         </div>
       );
     } else {
