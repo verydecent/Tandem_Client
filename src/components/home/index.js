@@ -35,13 +35,13 @@ const Home = ({
           <div className="hero-desc-section">
             <p className="hero-desc">
               Brought to you by:
-              <a id="hero-link" href="">
+              <a id="hero-link" href="https://madeintandem.com/">
                 &nbsp;Tandem
               </a>
             </p>
             <p className="hero-desc">
               Created by:
-              <a id="hero-link" href="">
+              <a id="hero-link" href="https://wonjaehwang.com/">
                 &nbsp;Wonjae
               </a>
             </p>
