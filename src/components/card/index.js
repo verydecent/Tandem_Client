@@ -10,15 +10,6 @@ import Timeup from "../modals/timeup";
 import { connect } from "react-redux";
 
 class Card extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
-  componentDidUpdate(prevProps) {
-    console.log("props", this.props);
-  }
-
   render() {
     const {
       cards,
@@ -30,6 +21,8 @@ class Card extends React.Component {
     const id = parseInt(match.params.id);
     const { question, incorrect, correct } = cards[id];
     const choices = shuffle([...incorrect, correct]);
+
+    console.log("render", cards);
 
     return (
       <div className="card">

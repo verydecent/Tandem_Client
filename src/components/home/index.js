@@ -56,7 +56,7 @@ const Home = ({
                 if (!username) {
                   console.log("write your username");
                 } else {
-                  getCards(() => history.push("/trivia/1"));
+                  getCards(() => history.push("/trivia/0"));
                 }
               }}
               onChange={(e) => updateUsername(e.target.value)}

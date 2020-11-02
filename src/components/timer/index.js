@@ -2,16 +2,20 @@ import React from "react";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 import { toggleTimeupModal } from "../../redux/actionCreators";
 import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 
-const Timer = ({ openTimeup }) => {
+const Timer = ({ match, history, openTimeup }) => {
+  const int = parseInt(match.params.id) + 1;
+  const direction = int === 21 ? "/leaderboard" : `/trivia/${int}`;
+  console.log("timer re render");
   return (
     <CountdownCircleTimer
       isPlaying
-      duration={4}
+      duration={2}
       colors={"#509AFA"}
       onComplete={() => {
-        openTimeup();
-        return [false, 1000];
+        history.push(direction);
+        return [false, 0];
       }}
       size={130}
       strokeWidth={18}
@@ -22,7 +26,12 @@ const Timer = ({ openTimeup }) => {
 };
 
 const mapDispatch = (dispatch) => ({
-  openTimeup: () => dispatch(toggleTimeupModal()),
+  openTimeup: () => {
+    console.log("dispatch");
+    dispatch(toggleTimeupModal());
+  },
 });
 
-export default connect(null, mapDispatch)(Timer);
+const TimerWithRouter = withRouter(Timer);
+
+export default connect(null, mapDispatch)(TimerWithRouter);
