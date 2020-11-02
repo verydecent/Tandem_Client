@@ -2,9 +2,9 @@ import {
   UPDATE_USERNAME,
   TOGGLE_CORRECT_MODAL,
   TOGGLE_INCORRECT_MODAL,
+  TOGGLE_TIMEUP_MODAL,
   CLOSE_MODALS,
   ADD_POINT,
-  TOGGLE_TIMEUP_MODAL,
 } from "./constants";
 
 export const updateUsername = (username) => ({

@@ -6,6 +6,7 @@ import { shuffle } from "../../helpers";
 import { Link, withRouter } from "react-router-dom";
 import Incorrect from "../modals/incorrect";
 import Correct from "../modals/correct";
+import Timeup from "../modals/timeup";
 import { connect } from "react-redux";
 
 const Card = ({
@@ -14,6 +15,7 @@ const Card = ({
   match,
   isCorrectModalOpen,
   isIncorrectModalOpen,
+  isTimeupModalOpen,
 }) => {
   const id = parseInt(match.params.id);
   const { question, incorrect, correct } = cards[id];
@@ -27,6 +29,7 @@ const Card = ({
     <div className="card">
       {isCorrectModalOpen && <Correct />}
       {isIncorrectModalOpen && <Incorrect />}
+      {isTimeupModalOpen && <Timeup />}
 
       <div className="question-section">
         <Question id={id} question={question} />
@@ -58,6 +61,7 @@ const mapState = (state) => ({
   cards: state.cards,
   isCorrectModalOpen: state.isCorrectModalOpen,
   isIncorrectModalOpen: state.isIncorrectModalOpen,
+  isTimeupModalOpen: state.isTimeupModalOpen,
 });
 
 const CardWithRouter = withRouter(Card);
