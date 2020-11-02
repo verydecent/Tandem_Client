@@ -15,7 +15,7 @@ const LeaderBoard = ({ points }) => {
             Thank you for playing, if you have time please check out more of my
             other works&nbsp;
           </span>
-          <span>
+          <span className="center">
             <a id="leaderboard-link" href="https://www.wonjaehwang.com">
               here
             </a>
