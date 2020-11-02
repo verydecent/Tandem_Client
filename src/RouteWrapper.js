@@ -9,11 +9,9 @@ import { connect } from "react-redux";
 const RouteWrapper = ({ cards }) => {
   return (
     <BrowserRouter>
-      <div className="max-width-container">
-        <Route exact path="/" component={Home} />
-        <Route path="/leaderboard" component={LeaderBoard} />
-        <Route path="/trivia/:id" component={Trivia} />
-      </div>
+      <Route exact path="/" component={Home} />
+      <Route path="/leaderboard" component={LeaderBoard} />
+      <Route path="/trivia/:id" component={Trivia} />
     </BrowserRouter>
   );
 };
