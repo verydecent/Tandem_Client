@@ -16,6 +16,7 @@ const Timeup = ({
     id === lastQ ? "/leaderboard" : `/trivia/${parseInt(id) + 1}`;
   const nextQuestion = () => {
     closeModals();
+    console.log("closeModals?");
     history.push(dynamicURL);
   };
 

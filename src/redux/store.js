@@ -56,6 +56,7 @@ function trivia(state = initialState, action) {
         ...state,
         isIncorrectModalOpen: false,
         isCorrectModalOpen: false,
+        isTimeupModalOpen: false,
       };
     }
     case ADD_POINT: {

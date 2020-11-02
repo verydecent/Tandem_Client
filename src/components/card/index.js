@@ -23,8 +23,7 @@ const Card = ({
   const dynamicURL = id === lastQ ? "/leaderboard" : `/trivia/${id + 1}`;
   const choices = shuffle([...incorrect, correct]);
 
-  console.log(isCorrectModalOpen);
-
+  console.log("==========>>>>>", choices);
   return (
     <div className="card">
       {isCorrectModalOpen && <Correct />}

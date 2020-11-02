@@ -5,7 +5,6 @@ import {
   toggleIncorrectModal,
   addPoint,
 } from "../../redux/actionCreators";
-import Button from "../button";
 
 const Choice = ({
   // Values
