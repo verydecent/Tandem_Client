@@ -25,7 +25,6 @@ export const getCardsHelper = (dispatch, cb) => {
   return axios
     .get(`${process.env.REACT_APP_DEVELOPMENT_API}/questions`)
     .then((response) => {
-      console.log("getCardsHelper ====>", response.data);
       dispatch({
         type: GET_CARDS,
         cards: response.data,

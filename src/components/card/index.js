@@ -3,7 +3,7 @@ import Question from "../question";
 import Choice from "../choice";
 import shortid from "shortid";
 import { shuffle } from "../../helpers";
-import { Link, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import Incorrect from "../modals/incorrect";
 import Correct from "../modals/correct";
 import Timeup from "../modals/timeup";
@@ -15,12 +15,11 @@ class Card extends React.Component {
     this.state = {};
   }
 
-  componentDidUpdate() {}
+  componentDidUpdate(prevProps) {
+    console.log("props", this.props);
+  }
 
   render() {
-    const id = parseInt(match.params.id);
-    const { question, incorrect, correct } = cards[id];
-    const choices = shuffle([...incorrect, correct]);
     const {
       cards,
       match,
@@ -28,6 +27,9 @@ class Card extends React.Component {
       isIncorrectModalOpen,
       isTimeupModalOpen,
     } = this.props;
+    const id = parseInt(match.params.id);
+    const { question, incorrect, correct } = cards[id];
+    const choices = shuffle([...incorrect, correct]);
 
     return (
       <div className="card">
