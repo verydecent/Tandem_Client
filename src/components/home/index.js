@@ -20,46 +20,48 @@ const Home = ({
   getCards,
 }) => {
   return (
-    <div className="home">
-      <Navigation />
-      <div className="hero">
-        <div className="hero-left">
-          <h1 className="hero-title">Welcome!</h1>
-          <h1 className="hero-title">
-            <span className="oj">Tandem</span> Trivia Game
-          </h1>
-          <p className="hero-subtitle">
-            <span className="underline"> Learn</span> about Tandem's origins
-            other interesting life facts
-          </p>
-          <div className="hero-desc-section">
-            <p className="hero-desc">
-              Brought to you by:
-              <a id="hero-link" href="https://madeintandem.com/">
-                &nbsp;Tandem
-              </a>
+    <div className="max-width-container">
+      <div className="home">
+        <Navigation />
+        <div className="hero">
+          <div className="hero-left">
+            <h1 className="hero-title">Welcome!</h1>
+            <h1 className="hero-title">
+              <span className="oj">Tandem</span> Trivia Game
+            </h1>
+            <p className="hero-subtitle">
+              <span className="underline"> Learn</span> about Tandem's origins
+              other interesting life facts
             </p>
-            <p className="hero-desc">
-              Created by:
-              <a id="hero-link" href="https://wonjaehwang.com/">
-                &nbsp;Wonjae
-              </a>
-            </p>
+            <div className="hero-desc-section">
+              <p className="hero-desc">
+                Brought to you by:
+                <a id="hero-link" href="https://madeintandem.com/">
+                  &nbsp;Tandem
+                </a>
+              </p>
+              <p className="hero-desc">
+                Created by:
+                <a id="hero-link" href="https://wonjaehwang.com/">
+                  &nbsp;Wonjae
+                </a>
+              </p>
+            </div>
           </div>
-        </div>
-        <div className="hero-right">
-          <NameInput
-            username={username}
-            onSubmit={(e) => {
-              e.preventDefault();
-              if (!username) {
-                console.log("write your username");
-              } else {
-                getCards(() => history.push("/trivia/1"));
-              }
-            }}
-            onChange={(e) => updateUsername(e.target.value)}
-          />
+          <div className="hero-right">
+            <NameInput
+              username={username}
+              onSubmit={(e) => {
+                e.preventDefault();
+                if (!username) {
+                  console.log("write your username");
+                } else {
+                  getCards(() => history.push("/trivia/1"));
+                }
+              }}
+              onChange={(e) => updateUsername(e.target.value)}
+            />
+          </div>
         </div>
       </div>
     </div>
