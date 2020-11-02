@@ -4,6 +4,7 @@ import {
   TOGGLE_INCORRECT_MODAL,
   CLOSE_MODALS,
   ADD_POINT,
+  TOGGLE_TIMEUP_MODAL,
 } from "./constants";
 
 export const updateUsername = (username) => ({
@@ -25,4 +26,8 @@ export const closeModals = () => ({
 
 export const addPoint = () => ({
   type: ADD_POINT,
+});
+
+export const toggleTimeupModal = () => ({
+  type: TOGGLE_TIMEUP_MODAL,
 });

@@ -5,6 +5,7 @@ import {
   GET_CARDS,
   TOGGLE_CORRECT_MODAL,
   TOGGLE_INCORRECT_MODAL,
+  TOGGLE_TIMEUP_MODAL,
   CLOSE_MODALS,
   ADD_POINT,
 } from "./constants";
@@ -14,6 +15,7 @@ const initialState = {
   cards: [],
   isCorrectModalOpen: false,
   isIncorrectModalOpen: false,
+  isTimeupModalOpen: false,
   points: 0,
 };
 
@@ -41,6 +43,12 @@ function trivia(state = initialState, action) {
       return {
         ...state,
         isIncorrectModalOpen: !state.isIncorrectModalOpen,
+      };
+    }
+    case TOGGLE_TIMEUP_MODAL: {
+      return {
+        ...state,
+        isTimeupModalOpen: !state.isTimeupModalOpen,
       };
     }
     case CLOSE_MODALS: {
