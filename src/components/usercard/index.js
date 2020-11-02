@@ -1,6 +1,5 @@
 import React from "react";
 import { connect } from "react-redux";
-import Timer from "../timer";
 
 const UserCard = ({ username, points }) => {
   return (
