@@ -411,3 +411,27 @@ USERCARD
   color: var(--white);
   box-shadow: 0px 3px 3px rgba(80, 154, 250, 0.3);
 }
+
+/*
+**********
+LEADEBOARD
+**********
+*/
+
+.leaderboard {
+  font-size: 3rem;
+}
+
+.leaderboard-text {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+#leaderboard-link {
+  color: var(--orange);
+}
+
+#leaderboard-link:hover {
+  text-decoration: underline;
+}
