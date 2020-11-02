@@ -19,11 +19,8 @@ const Card = ({
 }) => {
   const id = parseInt(match.params.id);
   const { question, incorrect, correct } = cards[id];
-  const lastQ = 21;
-  const dynamicURL = id === lastQ ? "/leaderboard" : `/trivia/${id + 1}`;
   const choices = shuffle([...incorrect, correct]);
 
-  console.log("==========>>>>>", choices);
   return (
     <div className="card">
       {isCorrectModalOpen && <Correct />}
