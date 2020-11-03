@@ -25,6 +25,7 @@ export const getCardsHelper = (dispatch, cb) => {
   return axios
     .get(`https://tandem-server.herokuapp.com/questions`)
     .then((response) => {
+      console.log("response", response);
       dispatch({
         type: GET_CARDS,
         cards: response.data,
