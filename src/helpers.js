@@ -23,7 +23,7 @@ export const shuffle = (array) => {
 
 export const getCardsHelper = (dispatch, cb) => {
   return axios
-    .get(`${process.env.REACT_APP_DEVELOPMENT_API}/questions`)
+    .get(`https://tandem-server.herokuapp.com/questions`)
     .then((response) => {
       dispatch({
         type: GET_CARDS,
